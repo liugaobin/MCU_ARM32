@@ -26,6 +26,7 @@ int main(void) {
   while (1) {
     gpio_bit_reset(GPIOB, GPIO_PIN_2);
     delay_1ms(500);
+    
     gpio_bit_set(GPIOB, GPIO_PIN_2);
     delay_1ms(500);
   }
