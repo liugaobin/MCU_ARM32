@@ -7,11 +7,21 @@
 
 void GPIO_config(void) {
   // 1. 时钟初始化
-  rcu_periph_clock_enable(RCU_GPIOB);
+  rcu_periph_clock_enable(RCU_GPIOA);
+  gpio_mode_set(GPIOA, GPIO_MODE_INPUT, GPIO_PUPD_NONE, GPIO_PIN_0);
+
+  rcu_periph_clock_enable(RCU_GPIOC);
+
+  gpio_mode_set(GPIOC, GPIO_MODE_INPUT, GPIO_PUPD_PULLUP, GPIO_PIN_0);
+
+
   // 2. 配置GPIO 输入输出模式
+   rcu_periph_clock_enable(RCU_GPIOB);
   gpio_mode_set(GPIOB, GPIO_MODE_OUTPUT, GPIO_PUPD_NONE, GPIO_PIN_2);
   // 3. 配置GPIO 模式的操作方式
   gpio_output_options_set(GPIOB, GPIO_OTYPE_PP, GPIO_OSPEED_2MHZ, GPIO_PIN_2);
+
+  gpio_bit_set(GPIOB, GPIO_PIN_2);
 }
 
 int main(void) {
@@ -26,7 +36,7 @@ int main(void) {
   while (1) {
     gpio_bit_reset(GPIOB, GPIO_PIN_2);
     delay_1ms(500);
-    
+
     gpio_bit_set(GPIOB, GPIO_PIN_2);
     delay_1ms(500);
   }

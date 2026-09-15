@@ -1,0 +1,7 @@
+CompileFlags:
+  Add:
+    - -isystemD:\APP\Keil_v5\ARM\ARMCLANG/include
+    - -isystemD:\APP\Keil_v5\ARM\ARMCLANG/include/libcxx
+  Remove: []
+  CompilationDatabase: ./build/GD32F407
+  Compiler: D:\APP\Keil_v5\ARM\ARMCLANG\bin\armclang.exe
